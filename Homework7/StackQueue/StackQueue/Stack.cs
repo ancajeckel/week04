@@ -8,15 +8,15 @@ namespace StackQueue
 {
     class Stack
     {
+        public Stack()
+        {
+            StackList = new List<int>();
+        }
+
         private List<int> StackList;
 
         public void Push(int aValue)
         {
-            if (StackList == null)
-            {
-                StackList = new List<int>();
-            }
-
             StackList.Add(aValue);
         }
 
@@ -34,7 +34,7 @@ namespace StackQueue
 
         public void Print()
         {
-            if (StackList == null)
+            if (StackList == null || StackList.Count == 0)
             {
                 Console.WriteLine("Stack empty!");
             }
