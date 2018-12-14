@@ -8,18 +8,31 @@ namespace PizzaApp
 {
     class PizzaTopping
     {
-        public PizzaTopping(string name)
-        {
-            this.Name = name;
-            this.Cost = Cost;
-        }
-        public string Name { get; set; }
+        private List<string> _toppingTypes = new List<string> { "cheese", "meat", "vegetables" };
 
-        public double Cost { get; set; }
+        public PizzaTopping(string aName, decimal aCost)
+        {
+            if (_toppingTypes.Contains(aName.ToLower()))
+            {
+                this.Name = aName;
+                this.Cost = aCost;
+            }
+            else
+            {
+                Console.WriteLine($"{aName} is an invalid topping");
+            }
+        }
+        public string Name { get; private set; }
+
+        public decimal Cost { get; }
 
         public void Print()
         {
-            Console.WriteLine($"\t{Name} (${Cost})");
+            if (Name.ToLower() == "meat")
+            {
+                Name = Name.ToUpper();
+            }
+            Console.WriteLine($"\tPT: {Name} (${Cost})");
         }
     }
 }

@@ -10,15 +10,12 @@ namespace PizzaApp
     {
         static void Main(string[] args)
         {
-            PizzaBase b1 = new PizzaBase("Italian",5);
+            PizzaBase b1 = new PizzaBase("Italian", 5);
+            PizzaBase b2 = new PizzaBase("Regular", 5);
 
-            PizzaTopping t1 = new PizzaTopping("Bufallo Mozarella");
-            t1.Cost = 3;
-            PizzaTopping t2 = new PizzaTopping("Salami");
-            t2.Name = t2.Name.ToUpper();
-            t2.Cost = 5.6;
-            PizzaTopping t3 = new PizzaTopping("Tomatoes");
-            t3.Cost = 0.78;
+            PizzaTopping t1 = new PizzaTopping("Meat",7);
+            PizzaTopping t2 = new PizzaTopping("Cheese",10);
+            PizzaTopping t3 = new PizzaTopping("Vegetables",(decimal)2.5);
 
             Pizza p1 = new Pizza(b1);
             p1.Name = "Capriciosa";

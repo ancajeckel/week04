@@ -8,31 +8,33 @@ namespace PizzaApp
 {
     class PizzaBase
     {
-        public PizzaBase(string name, double baseCost)
+        public PizzaBase(string name, decimal baseCost)
         {
-            if (name != "Regular" && name != "Thick" && name != "Italian")
+            switch (name)
             {
-                throw new Exception("Base can be: Regular / Thick / Italian");
+                case "Italian":
+                    this.Name = name;
+                    this.Cost = (decimal)1.5 * baseCost;
+                    break;
+                case "Thick":
+                case "Regular":
+                    this.Name = name;
+                    this.Cost = baseCost;
+                    break;
+                default:
+                    Console.WriteLine($"{name} is not a valid PizzaBase");
+                    break;
             }
-            this.Name = name;
-            this.Cost = baseCost;
-        }
-        public string Name { get; set; }
 
-        public double Cost { get; set; }
-
-        public double GetCost()
-        {
-            if (Name == "Italian")
-            {
-                return 1.5 * Cost;
-            }
-            return Cost;
         }
+
+        public string Name { get; }
+
+        public decimal Cost { get; }
 
         public void Print()
         {
-            Console.WriteLine($"Base: {Name} (${GetCost()})");
+            Console.WriteLine($"Base: {this.Name} (${this.Cost})");
         }
     }
 }

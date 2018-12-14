@@ -19,17 +19,17 @@ namespace PizzaApp
 
         public PizzaBase PizzaBase { get; set; }
 
-        public List<PizzaTopping> PizzaTopping { get; set; }
+        private List<PizzaTopping> PizzaTopping { get; set; }
 
         public void AddTopping(PizzaTopping pizzaTopping)
         {
             PizzaTopping.Add(pizzaTopping);
         }
 
-        public double CalculateTotalCost()
+        public decimal CalculateTotalCost()
         {
-            double total_cost = 0;
-            total_cost = total_cost + this.PizzaBase.GetCost();
+            decimal total_cost = 0;
+            total_cost = total_cost + this.PizzaBase.Cost;
 
             foreach (var topping in this.PizzaTopping)
             {
