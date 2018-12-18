@@ -14,5 +14,19 @@ namespace AnimalHierarchy
             this.Age = age;
             this.Gender = "male";
         }
+
+        public new string Gender
+        {
+            get
+            {
+                return base.Gender;
+            }
+
+            set
+            {
+                Console.WriteLine("Gender of tomcat can only be male!");
+                base.Gender = "male";
+            }
+        }
     }
 }

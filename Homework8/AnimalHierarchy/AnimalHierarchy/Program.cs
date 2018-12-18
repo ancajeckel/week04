@@ -23,6 +23,8 @@ namespace AnimalHierarchy
 
             var k1 = new Kitten("Kitten", 4);
             ((Cat)k1).Print();
+            k1.Gender = "male";
+            ((Cat)k1).Print();
 
             var t1 = new Tomcat("Tomcat", 5);
             t1.Age = 20;
